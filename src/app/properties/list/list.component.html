@@ -1,0 +1,23 @@
+
+
+<div parallax class="d-flex flex-column align-items-center justify-content-center p-5 h-100"
+       id="landing-section">
+
+  <h1 class="landing-text">Welcome to Munich</h1>
+  <p class="lead landing-text">A recruting test from <strong>lime</strong>home</p>
+
+  <div class="search-wrapper position-relative mt-5">
+    <input type="text"
+           class="form-control shadow"
+           (keyup)="search($event.target.value)"
+           id="search-input" placeholder="Find your next home">
+    <mat-icon>search</mat-icon>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="properties-list card-columns my-3">
+    <list-item *ngFor="let property of properties$ | async" [property]="property"></list-item>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+
+
+<div class="container pt-2 mb-5" style="margin-top : 80px">
+  <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img src="/assets/images/room.jpg" alt="{{property?.name}}" class="rounded" width="100%">
+      </div>
+      <div class="col-md-6 col-cm-12 clearfix">
+        <h1>{{property?.name}} <br>
+        <small class="text-muted">{{property?.categories[0].title}}</small>
+        </h1>
+
+        <p class="" [innerHtml]="property?.location.address.text"></p>
+        <div class="d-flex justify-content-end">
+          <a href="{{property?.view}}"
+             target="_blank"
+             class="btn btn-sm btn-light d-inline-flex justify-content-center align-content-between">
+            <mat-icon [style.fontSize]="'20px'">map</mat-icon>
+            <span>View on map</span>
+          </a>
+        </div>
+        <hr>
+        <h4>Opening hours</h4>
+        <p>{{property?.extended.openingHours.text}}</p>
+        <hr>
+        <button type="button"
+                class="btn btn-primary float-right">
+          Book now
+        </button>
+      </div>
+  </div>
+</div>

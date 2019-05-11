@@ -1,0 +1,14 @@
+
+
+
+<div class="card shadow-sm mb-2">
+  <div class="card-body">
+    <p class="lead mb-1">{{property.title}}</p>
+    <small class="text-muted" [innerHtml]="property.vicinity"></small>
+    <!-- <small class="text-muted">Distance: {{property.distance}}</small> -->
+    <button type="button" class="btn btn-sm btn-light float-right" [routerLink]="['./', property.id]">
+      Detail
+    </button>
+
+  </div>
+</div>
