@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  API_URL : 'http://localhost:3000/api',
   HERE_APP_ID : 'xfUs0ufANzQXLMrpfuYm',
   HERE_APP_CODE : '1qLuUrEoswUoZzDWQ0aydw',
 };

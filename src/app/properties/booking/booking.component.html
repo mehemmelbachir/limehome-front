@@ -1,0 +1,59 @@
+
+<div class="modal-header">
+  <h4 class="modal-title">
+      Booking request
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div class="modal-body">
+
+<form [formGroup]="rForm">
+  <ngb-datepicker #dp
+                  (select)="onDateSelection($event)"
+                  [displayMonths]="2"
+                  [dayTemplate]="t"
+                  outsideDays="hidden">
+  </ngb-datepicker>
+
+  <input type="email" name="email" class="form-control mt-2 mb-2"
+         formControlName="email" placeholder="Your email">
+
+  <input type="text" name="email" class="form-control mb-2"
+        formControlName="fullName" placeholder="Your full name">
+  <!-- <input type="text" class="form-control"
+         formControlName="startDate"
+         ngbDatepicker
+         [displayMonths]="2"
+         [dayTemplate]="t"
+         outsideDays="hidden"
+         (select)="onDateSelection($event)"> -->
+</form>
+
+  <ng-template #t let-date let-focused="focused">
+    <span class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isRange(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null">
+      {{ date.day }}
+    </span>
+  </ng-template>
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn"
+          (click)="activeModal.dismiss()">
+          Cancel
+  </button>
+  <button type="button" class="btn btn-primary"
+          [disabled]="!rForm.valid"
+          (click)="submit()">
+          Save
+  </button>
+</div>

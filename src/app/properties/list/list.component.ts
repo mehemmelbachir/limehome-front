@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
         distinctUntilChanged(),
         switchMap(term => this.propertiesService.getProperties(term)),
         // Map to extract properties array
-        map(resp => resp['results']['items'])
+        map(resp => resp['results']['items']),
       )
     })
   }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
 import { PropertiesService } from '@services';
+import { BookingComponent } from '../booking/booking.component';
 
 @Component({
   selector: 'app-detail',
@@ -12,16 +15,25 @@ export class DetailComponent implements OnInit {
   property : any;
 
   constructor(private route : ActivatedRoute,
-              private propertiesService : PropertiesService) { }
+              private propertiesService : PropertiesService,
+              private ngbModal : NgbModal) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       return this.propertiesService.getProperty(params['PROPERTY_ID'])
       .then(data => {
-        console.log(data);
+        // console.log(data);
         this.property = data
       })
     })
+  }
+
+  openBookingForm(){
+    let ngbModelRef = this.ngbModal.open(BookingComponent)
+    ngbModelRef.componentInstance.property = this.property;
+    ngbModelRef.result.then(data => {
+      console.log(data);
+    }, reason => {})
   }
 
 }

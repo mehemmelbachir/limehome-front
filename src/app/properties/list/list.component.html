@@ -20,4 +20,8 @@
   <div class="properties-list card-columns my-3">
     <list-item *ngFor="let property of properties$ | async" [property]="property"></list-item>
   </div>
+
+  <div class="text-center p-5" *ngIf="!(properties$ | async)">
+    <h4 class="" style="color : lightgray">Loading...</h4>
+  </div>
 </div>

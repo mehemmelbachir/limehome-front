@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ListComponent } from './properties/list/list.component';
 import { DetailComponent } from './properties/detail/detail.component';
 import { ListItemComponent } from './properties/list/list-item/list-item.component';
+import { BookingComponent } from './properties/booking/booking.component';
 
 
 @NgModule({
@@ -18,14 +19,17 @@ import { ListItemComponent } from './properties/list/list-item/list-item.compone
     LoginComponent,
     ListComponent,
     DetailComponent,
-    ListItemComponent
+    ListItemComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  entryComponents : [
+    BookingComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
