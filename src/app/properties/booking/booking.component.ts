@@ -28,7 +28,6 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.property);
     this.createForm()
   }
 

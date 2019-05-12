@@ -25,11 +25,18 @@
           <p>{{property?.extended.openingHours.text}}</p>
           <hr>
         </div>
-        <button type="button"
+
+        <button *ngIf="!booked; else bookedView" type="button"
                 class="btn btn-primary float-right"
                 (click)=openBookingForm()>
           Book now
         </button>
+        <ng-template #bookedView>
+          <div class="float-right d-flex align-items-center p-2 rounded border">
+            <mat-icon class="mr-2">done</mat-icon>
+            <p class="m-0">Booked</p>
+          </div>
+        </ng-template>
       </div>
   </div>
 </div>

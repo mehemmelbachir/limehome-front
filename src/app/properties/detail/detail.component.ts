@@ -13,6 +13,7 @@ import { BookingComponent } from '../booking/booking.component';
 export class DetailComponent implements OnInit {
 
   property : any;
+  booked : boolean = false;
 
   constructor(private route : ActivatedRoute,
               private propertiesService : PropertiesService,
@@ -32,7 +33,9 @@ export class DetailComponent implements OnInit {
     let ngbModelRef = this.ngbModal.open(BookingComponent)
     ngbModelRef.componentInstance.property = this.property;
     ngbModelRef.result.then(data => {
-      console.log(data);
+      if(data){
+        this.booked = true;
+      }
     }, reason => {})
   }
 

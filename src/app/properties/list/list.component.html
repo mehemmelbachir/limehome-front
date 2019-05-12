@@ -1,5 +1,5 @@
 
-
+<!-- Header -->
 <div parallax class="d-flex flex-column align-items-center justify-content-center p-5 h-100"
        id="landing-section">
 
@@ -16,12 +16,20 @@
 
 </div>
 
+<!-- Main content  -->
 <div class="container">
+  <!-- Properties list  -->
   <div class="properties-list card-columns my-3">
     <list-item *ngFor="let property of properties$ | async" [property]="property"></list-item>
   </div>
 
-  <div class="text-center p-5" *ngIf="!(properties$ | async)">
-    <h4 class="" style="color : lightgray">Loading...</h4>
+  <!-- loading spinner  -->
+  <div *ngIf="!(properties$ | async)"
+       class="d-flex justify-content-center align-items-center p-5"
+       style="min-height : 300px">
+    <div class="d-flex flex-column align-items-center">
+        <img src="/assets/images/loading.gif" alt="loading">
+        <small class="mt-2" style="color : lightgray">Loading...</small>
+    </div>
   </div>
 </div>
